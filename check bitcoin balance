@@ -1,0 +1,7 @@
+function checkBitcoinBalance(address) {
+  var url = "https://blockchain.info/q/addressbalance/" + address;
+  var response = UrlFetchApp.fetch(url);
+  var balanceInSatoshi = response.getContentText();
+  var balanceInBitcoin = Number(balanceInSatoshi) / 1e8; // Chuyển đổi từ Satoshi sang Bitcoin
+  return balanceInBitcoin;
+}
